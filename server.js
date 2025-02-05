@@ -6,6 +6,8 @@ import userRouter from "./routes/user.router.js";
 import courseRouter from "./routes/course.router.js";
 import categoryRouter from "./routes/category.router.js"
 import chapterRouter from "./routes/chapter.router.js"
+import razorpayRouter from "./routes/razorpay.router.js"
+import Razorpay from "razorpay";
 
 const app = express();
 dotenv.config();
@@ -29,6 +31,8 @@ app.use("/api/v1/user", userRouter);
 app.use("/api/v1/courses", courseRouter);
 app.use("/api/v1/categories", categoryRouter);
 app.use("/api/v1/chapters",chapterRouter)
+
+app.use("/api/v1/razorpay", razorpayRouter);
 
 app.get("/", (_, res) => {
   res.json({ msg: "api is working" });
